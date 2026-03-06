@@ -7,26 +7,40 @@ https://actify-assignment.vercel.app/
 --React Accounts Dashboard---
 
 -A modern dashboard application built with React that allows users to manage accounts efficiently.
+
 -The application includes account listing, search, sorting, pagination, Excel export, and a form to add new accounts.
 
 --Features
 -View account data in a dynamic table
+
 -Search accounts instantly
+
 -Sort table columns
+
 -Pagination support
+
 -Export filtered data to Excel
+
 -Add new accounts through a form
+
 -Sidebar navigation with active route highlighting
+
 -Responsive UI using Tailwind CSS
+
 -State management using Redux Toolkit
 
 
 ----Tech Stack----
+
 --Frontend
+
 -React+Vite
 -Redux Toolkit
+
 -React Hook Form
+
 -TanStack React Table
+
 -Tailwind CSS
 -React Router
 -React Icons
