@@ -30,7 +30,7 @@ function Table() {
           href={getValue()}
           target="_blank"
           rel="noreferrer"
-          className="text-blue-600 hover:text-blue-800 hover:underline"
+          className="text-blue-600 hover:underline"
         >
           Visit
         </a>
@@ -81,7 +81,7 @@ function Table() {
     getFilteredRowModel: getFilteredRowModel(),
   });
 
-  // to download the excel file
+  // Export Excel
   const downloadExcel = () => {
     const filteredData = table
       .getFilteredRowModel()
@@ -91,49 +91,47 @@ function Table() {
     const wb = XLSX.utils.book_new();
 
     XLSX.utils.book_append_sheet(wb, ws, "Accounts");
-
     XLSX.writeFile(wb, "accounts.xlsx");
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 flex justify-center p-6">
+    <div className="min-h-screen bg-gray-100 p-4 sm:p-6">
 
-      <div className="w-full max-w-7xl bg-white rounded-xl shadow-lg p-6">
+      <div className="w-full bg-white rounded-xl shadow-lg p-4 sm:p-6">
 
-        <div className="flex flex-col md:flex-row md:justify-between md:items-center mb-6">
+        {/* Header */}
+        <div className="flex flex-col lg:flex-row lg:justify-between lg:items-center gap-4 mb-6">
 
           <div>
-            <h2 className="text-2xl font-semibold text-gray-800">
+            <h2 className="text-xl sm:text-2xl font-semibold text-gray-800">
               Account Lists
             </h2>
-            <p className="text-gray-500 text-sm mt-1">
+            <p className="text-gray-500 text-sm">
               Manage all your accounts here
             </p>
           </div>
 
           <button
             onClick={downloadExcel}
-            className="mt-3 md:mt-0 bg-green-600 hover:bg-green-700 text-white px-5 py-2 rounded-md transition"
+            className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-md transition w-full sm:w-auto"
           >
             Export Excel
           </button>
 
         </div>
 
-
-
-        {/* global Search and  Page Size */}
-        <div className="flex flex-col md:flex-row justify-between gap-4 mb-4">
+        {/* Search + Page Size */}
+        <div className="flex flex-col sm:flex-row sm:justify-between gap-3 mb-4">
 
           <input
             placeholder="Search accounts..."
             value={globalFilter ?? ""}
             onChange={(e) => setGlobalFilter(e.target.value)}
-            className="border border-gray-300 rounded-md px-4 py-2 w-full md:w-72 focus:outline-none focus:ring-2 focus:ring-blue-400"
+            className="border border-gray-300 rounded-md px-4 py-2 w-full sm:w-72 focus:outline-none focus:ring-2 focus:ring-blue-400"
           />
 
           <select
-            className="border border-gray-300 rounded-md px-3 py-2 w-40"
+            className="border border-gray-300 rounded-md px-3 py-2 w-full sm:w-40"
             value={table.getState().pagination.pageSize}
             onChange={(e) =>
               table.setPageSize(Number(e.target.value))
@@ -148,20 +146,16 @@ function Table() {
 
         </div>
 
-
-
-        {/* to  Count the row */}
+        {/* Row Count */}
         <p className="text-sm text-gray-500 mb-3">
           Total Rows: {data.length} | Showing:{" "}
           {table.getRowModel().rows.length}
         </p>
 
-
-
         {/* Table */}
-        <div className="overflow-x-auto border rounded-lg">
+        <div className="overflow-x-auto rounded-lg border">
 
-          <table className="min-w-full text-sm">
+          <table className="min-w-[900px] w-full text-sm">
 
             <thead className="bg-gray-50">
 
@@ -172,7 +166,7 @@ function Table() {
                     <th
                       key={header.id}
                       onClick={header.column.getToggleSortingHandler()}
-                      className="px-5 py-3 text-left font-semibold text-gray-600 border-b cursor-pointer"
+                      className="px-4 py-3 text-left font-semibold text-gray-600 border-b cursor-pointer whitespace-nowrap"
                     >
                       {flexRender(
                         header.column.columnDef.header,
@@ -200,7 +194,7 @@ function Table() {
                   {row.getVisibleCells().map((cell) => (
                     <td
                       key={cell.id}
-                      className="px-5 py-3 border-b text-gray-700"
+                      className="px-4 py-3 border-b text-gray-700 whitespace-nowrap"
                     >
                       {flexRender(
                         cell.column.columnDef.cell,
@@ -218,13 +212,13 @@ function Table() {
 
         </div>
 
-        {/* buttons for Pagination  */}
-        <div className="flex flex-col md:flex-row justify-between items-center mt-5 gap-3">
+        {/* for pagination */}
+        <div className="flex flex-col sm:flex-row justify-between items-center mt-5 gap-3">
 
           <button
             onClick={() => table.previousPage()}
             disabled={!table.getCanPreviousPage()}
-            className="px-4 py-2 border rounded-md hover:bg-gray-100 disabled:opacity-40"
+            className="px-4 py-2 border rounded-md hover:bg-gray-100 disabled:opacity-40 w-full sm:w-auto"
           >
             Previous
           </button>
@@ -237,7 +231,7 @@ function Table() {
           <button
             onClick={() => table.nextPage()}
             disabled={!table.getCanNextPage()}
-            className="px-4 py-2 border rounded-md hover:bg-gray-100 disabled:opacity-40"
+            className="px-4 py-2 border rounded-md hover:bg-gray-100 disabled:opacity-40 w-full sm:w-auto"
           >
             Next
           </button>
