@@ -1,8 +1,7 @@
 # React + Vite
 
-###Deployment 
+###Deployment
 https://actify-assignment.vercel.app/
-
 
 --React Accounts Dashboard---
 
@@ -30,7 +29,6 @@ https://actify-assignment.vercel.app/
 
 -State management using Redux Toolkit
 
-
 ----Tech Stack----
 
 --Frontend
@@ -53,7 +51,6 @@ https://actify-assignment.vercel.app/
 
 -XLSX (Excel export)
 
-
 ## Installation
 
 -Clone the repository
@@ -72,7 +69,6 @@ npm install
 
 npm run dev
 
-
 -----Screenshot----
 
 -- project screenshots here
@@ -88,7 +84,6 @@ npm run dev
 <img width="196" height="421" alt="Screenshot 2026-03-07 025729" src="https://github.com/user-attachments/assets/2a815dfb-ffab-4a5c-a953-20ed6e0bd614" />
 
 <img width="195" height="425" alt="Screenshot 2026-03-07 025719" src="https://github.com/user-attachments/assets/a9ccbfa7-e820-4fca-a3f7-e7d7658d21a9" />
-
 
 #####Scope of the Project
 
@@ -106,7 +101,6 @@ npm run dev
 
 -Highlight active navigation links in the sidebar.
 
-
 -----Future Scope-----
 
 -Add edit and delete functionalities for accounts.
@@ -123,8 +117,6 @@ npm run dev
 
 -Multi-language support for internationalization.
 
-
 ## Author
 
 Akash Gupta
-
